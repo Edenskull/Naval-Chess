@@ -128,7 +128,6 @@ def setup():  # tu setup la position random de tes bateaux ici
                 if not check_pass:
                     current_pos.append(lettrec1 + str(chiffrec1))
                     global_pos_ai.append(lettrec1 + str(chiffrec1))
-                    board_player[chiffrec1][rand_int] = "V"
                     if indexc1 > 4:
                         for iterate in range(isize-1):
                             chiffrec1 -= 1
@@ -141,7 +140,6 @@ def setup():  # tu setup la position random de tes bateaux ici
                                 check_pass = False
                             current_pos.append(lettres[rand_int] + str(chiffrec1))
                             global_pos_ai.append(lettres[rand_int] + str(chiffrec1))
-                            board_player[chiffrec1][rand_int] = "V"
                     elif 0 <= indexc1 <= 4:
                         for iterate in range(isize-1):
                             chiffrec1 += 1
@@ -154,7 +152,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                                 check_pass = False
                             current_pos.append(lettres[rand_int] + str(chiffrec1))
                             global_pos_ai.append(lettres[rand_int] + str(chiffrec1))
-                            board_player[chiffrec1][rand_int] = "V"
+
             if not check_pass:
                 liste_bateaux_ai.append(Bateau(current_pos, modec))
     for isize in bateaux_size:  # tu parcours ton tableau de taille de bateau
@@ -177,6 +175,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                 if not check_pass:
                     current_pos.append(lettrec1 + str(chiffrec1))
                     global_pos_player.append(lettrec1 + str(chiffrec1))
+                    board_player[chiffrec1 + 1][rand_int + 1] = "V"
                     if indexc1 > 4:
                         for iterate in range(isize-1):
                             rand_int -= 1
@@ -189,6 +188,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                                 check_pass = False
                             current_pos.append(lettres[rand_int] + str(chiffrec1))
                             global_pos_player.append(lettres[rand_int] + str(chiffrec1))
+                            board_player[chiffrec1 + 1][rand_int + 1] = "V"
                     elif 0 <= indexc1 <= 4:
                         for iterate in range(isize-1):
                             if lettres[rand_int] + str(chiffrec1) in global_pos_player:
@@ -201,6 +201,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                             rand_int += 1
                             current_pos.append(lettres[rand_int] + str(chiffrec1))
                             global_pos_player.append(lettres[rand_int] + str(chiffrec1))
+                            board_player[chiffrec1 + 1][rand_int + 1] = "V"
             # si le bateau est à la vertical
             else:
                 chiffrec1 = random.randint(0, 9)
@@ -215,6 +216,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                 if not check_pass:
                     current_pos.append(lettrec1 + str(chiffrec1))
                     global_pos_player.append(lettrec1 + str(chiffrec1))
+                    board_player[chiffrec1 + 1][rand_int + 1] = "V"
                     if indexc1 > 4:
                         for iterate in range(isize-1):
                             chiffrec1 -= 1
@@ -227,6 +229,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                                 check_pass = False
                             current_pos.append(lettres[rand_int] + str(chiffrec1))
                             global_pos_player.append(lettres[rand_int] + str(chiffrec1))
+                            board_player[chiffrec1 + 1][rand_int + 1] = "V"
                     elif 0 <= indexc1 <= 4:
                         for iterate in range(isize-1):
                             chiffrec1 += 1
@@ -239,6 +242,7 @@ def setup():  # tu setup la position random de tes bateaux ici
                                 check_pass = False
                             current_pos.append(lettres[rand_int] + str(chiffrec1))
                             global_pos_player.append(lettres[rand_int] + str(chiffrec1))
+                            board_player[chiffrec1 + 1][rand_int + 1] = "V"
             if not check_pass:
                 liste_bateaux_player.append(Bateau(current_pos, modec))
 
