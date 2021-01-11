@@ -180,6 +180,11 @@ def setup():  # tu setup la position random de tes bateaux ici
                         for iterate in range(isize-1):
                             rand_int -= 1
                             if lettres[rand_int] + str(chiffrec1) in global_pos_player:
+                                for a1 in current_pos:
+                                    a1 = list(a1)
+                                    index = lettres.index(a1[0])
+                                    chiffre = int(a1[1])
+                                    board_player[chiffre + 1][index + 1] = ' '
                                 current_pos.clear()
                                 check_pass = True
                                 del global_pos_player[-(iterate + 1):]
@@ -192,6 +197,11 @@ def setup():  # tu setup la position random de tes bateaux ici
                     elif 0 <= indexc1 <= 4:
                         for iterate in range(isize-1):
                             if lettres[rand_int] + str(chiffrec1) in global_pos_player:
+                                for a1 in current_pos:
+                                    a1 = list(a1)
+                                    index = lettres.index(a1[0])
+                                    chiffre = int(a1[1])
+                                    board_player[chiffre + 1][index + 1] = ' '
                                 current_pos.clear()
                                 check_pass = True
                                 del global_pos_player[-(iterate + 1):]
@@ -221,6 +231,11 @@ def setup():  # tu setup la position random de tes bateaux ici
                         for iterate in range(isize-1):
                             chiffrec1 -= 1
                             if lettres[rand_int] + str(chiffrec1) in global_pos_player:
+                                for a1 in current_pos:
+                                    a1 = list(a1)
+                                    index = lettres.index(a1[0])
+                                    chiffre = int(a1[1])
+                                    board_player[chiffre + 1][index + 1] = ' '
                                 current_pos.clear()
                                 del global_pos_player[-(iterate + 1):]
                                 check_pass = True
@@ -234,6 +249,11 @@ def setup():  # tu setup la position random de tes bateaux ici
                         for iterate in range(isize-1):
                             chiffrec1 += 1
                             if lettres[rand_int] + str(chiffrec1) in global_pos_player:
+                                for a1 in current_pos:
+                                    a1 = list(a1)
+                                    index = lettres.index(a1[0])
+                                    chiffre = int(a1[1])
+                                    board_player[chiffre + 1][index + 1] = ' '
                                 current_pos.clear()
                                 del global_pos_player[-(iterate + 1):]
                                 check_pass = True
@@ -245,6 +265,8 @@ def setup():  # tu setup la position random de tes bateaux ici
                             board_player[chiffrec1 + 1][rand_int + 1] = "V"
             if not check_pass:
                 liste_bateaux_player.append(Bateau(current_pos, modec))
+    for bateau in liste_bateaux_player:
+        print(bateau.__dict__)
 
 
 def print_board(board):  # fonction pour afficher ton tableau simplement
@@ -272,6 +294,8 @@ def game():  # fonction qui permet de dérouler le jeu dans le bon ordre
     ai_guess = []  # tableau de toutes les position deja ecrite par l'ia
     setup()
     while not check_win():
+        print("IA Board")
+        print_board(board_ai)
         print("Player Board")
         print_board(board_player)
         wrong_input = True
